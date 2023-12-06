@@ -1,6 +1,6 @@
 # importing tkinter for gui
 import tkinter as tk
-import ex2
+import pl2
 
 def on_button_click():
     c1 = int(e1.get())
@@ -15,7 +15,7 @@ def on_button_click():
     tmpCh = int(e10.get())
     rec = int(e11.get())
     lic = int(e12.get())
-    solution = ex2.solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic)
+    solution = pl2.solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic)
     # print(solution)
     s = ("Stratégie du premier mois:\n Il faut recruter " + str(int(solution['x[0]']))
          + " personne, et licencier " + str(int(solution['x[4]'])) + " personne" + ". " + str((int(solution['x[8]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires\n"
