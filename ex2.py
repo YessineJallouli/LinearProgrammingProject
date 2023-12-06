@@ -2,6 +2,7 @@ import gurobipy as gp
 from gurobipy import GRB
 import numpy as np
 
+
 def concatenate(*args):
     xt = []
     for a in args:
@@ -11,6 +12,17 @@ def concatenate(*args):
     xt = np.array(xt)
     return xt
 
+"""
+c_i : demande de ième mois
+nbOuv : nombre d'ouvrier disposé
+salaire : salaire d'un ouvrier
+nbH : nombre d'heure travaillé par un ouvrier pendant un mois
+nbSp : nombre d'heures supplementaire par mois
+prixSup : prix d'une heure supplementaire
+tmpCh  : temps pour faire une paire de chaussure
+rec : Frais du recrutement
+lic  : Frais du licenciement
+"""
 
 def solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic):
     model = gp.Model("ex2")
