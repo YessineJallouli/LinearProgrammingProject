@@ -59,11 +59,11 @@ def solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic):
     return solution
 
 
-C1, C2, C3, C4 = 3000, 5000, 4000, 1000
-NbOuv = 100
-Salaire, NbH, SbSp, PrixSup = 1500, 160, 20, 13
-TmpCh = 4
-Rec, Lic = 1600, 2000
-
-ans = solve(C1, C2, C3, C4, NbOuv, Salaire, NbH, SbSp, PrixSup, TmpCh, Rec, Lic)
-print(ans)
+# C1, C2, C3, C4 = 3000, 5000, 4000, 1000
+# NbOuv = 100
+# Salaire, NbH, SbSp, PrixSup = 1500, 160, 20, 13
+# TmpCh = 4
+# Rec, Lic = 1600, 2000
+#
+# ans = solve(C1, C2, C3, C4, NbOuv, Salaire, NbH, SbSp, PrixSup, TmpCh, Rec, Lic)
+# print(ans)

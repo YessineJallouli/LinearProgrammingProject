@@ -2,7 +2,6 @@
 import tkinter as tk
 import ex2
 
-
 def on_button_click():
     c1 = int(e1.get())
     c2 = int(e2.get())
@@ -12,12 +11,22 @@ def on_button_click():
     salaire = int(e6.get())
     nbH = int(e7.get())
     nbSp = int(e8.get())
-    prixSup = e9.get()
-    tmpCh = e10.get()
-    rec = e11.get()
-    lic = e12.get()
+    prixSup = int(e9.get())
+    tmpCh = int(e10.get())
+    rec = int(e11.get())
+    lic = int(e12.get())
     solution = ex2.solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic)
-    label_message.config(text=str("solution"))
+    # print(solution)
+    s = ("Stratégie du premier mois:\n Il faut recruter " + str(int(solution['x[0]']))
+         + " personne, et licencier " + str(int(solution['x[4]'])) + " personne" + ". " + str((int(solution['x[8]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires\n"
+    + ("Stratégie du second mois:\n Il faut recruter " + str(int(solution['x[1]']))
+         + " personne, et licencier " + str(int(solution['x[5]'])) + " personne" + ". " + str((int(solution['x[9]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires\n")
+    + ("Stratégie du troisième mois:\n Il faut recruter " + str(int(solution['x[2]']))
+         + " personne, et licencier " + str(int(solution['x[6]'])) + " personne" + ". " + str((int(solution['x[10]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires\n")
+    + ("Stratégie du quatrième mois:\n Il faut recruter " + str(int(solution['x[3]']))
+         + " personne, et licencier " + str(int(solution['x[7]'])) + " personne" + ". " + str((int(solution['x[11]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires"))
+    # print(s)
+    label_message.config(text = s)
 
 
 # creating window
@@ -74,14 +83,5 @@ button.grid(row=12, column=0, columnspan=2, pady = 10)
 
 label_message = tk.Label(window, text="", font=("Arial", 18))
 label_message.grid(row=13, column=0, columnspan=2, pady=10)
-
-
-#
-# title = tk.Label(window, text="Planning optimal de production et la politique optimale de gestion des ouvriers", font=("Arial", 25))
-# title.pack()
-#
-# var1 = tk.Label(window, text="Nombre de chaussure demandé pour le premier mois :", font=("Arial", 25))
-# var1.pack()
-
 
 window.mainloop()
