@@ -2,6 +2,33 @@
 import tkinter as tk
 import pl2
 
+
+def strategy(r, l, s):
+    res = ""
+    if r > 0:
+        if r == 1:
+            res += "Il faut recruter une personne"
+        else:
+            res += "Il faut recruter " + str(r) + " personnes"
+    elif l > 0:
+        if l == 1:
+            res += "Il faut licencier une personne"
+        else:
+            res += "Il faut licencier " + str(l) + " personnes"
+
+    if s > 0:
+        if len(res):
+            res += ". "
+        if s == 1:
+            res += "Une personne doit faire des heures supplémentaires"
+        else:
+            res += str(s) + " personnes doivent faire des heures supplémentaires"
+    if r == 0 and l == 0 and s == 0:
+        res += "Rien à faire"
+    res += '\n'
+    return res
+
+
 def on_button_click():
     c1 = int(e1.get())
     c2 = int(e2.get())
@@ -17,16 +44,16 @@ def on_button_click():
     lic = int(e12.get())
     solution = pl2.solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic)
     # print(solution)
-    s = ("Stratégie du premier mois:\n Il faut recruter " + str(int(solution['x[0]']))
-         + " personne, et licencier " + str(int(solution['x[4]'])) + " personne" + ". " + str((int(solution['x[8]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires\n"
-    + ("Stratégie du second mois:\n Il faut recruter " + str(int(solution['x[1]']))
-         + " personne, et licencier " + str(int(solution['x[5]'])) + " personne" + ". " + str((int(solution['x[9]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires\n")
-    + ("Stratégie du troisième mois:\n Il faut recruter " + str(int(solution['x[2]']))
-         + " personne, et licencier " + str(int(solution['x[6]'])) + " personne" + ". " + str((int(solution['x[10]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires\n")
-    + ("Stratégie du quatrième mois:\n Il faut recruter " + str(int(solution['x[3]']))
-         + " personne, et licencier " + str(int(solution['x[7]'])) + " personne" + ". " + str((int(solution['x[11]'])+nbH-1)//nbH) + " personnes doivent faire des heures supplementaires"))
-    # print(s)
-    label_message.config(text = s)
+    s = "Stratégie du premier mois :\n" + strategy(solution['x[0]'], solution['x[4]'],
+                                                   (solution['x[8]'] + nbH - 1) // nbH)
+    s += "Stratégie du second mois :\n" + strategy(solution['x[1]'], solution['x[5]'],
+                                                   (solution['x[9]'] + nbH - 1) // nbH)
+    s += "Stratégie du troisième mois :\n" + strategy(solution['x[2]'], solution['x[6]'],
+                                                      (solution['x[10]'] + nbH - 1) // nbH)
+    s += "Stratégie du quatrième mois :\n" + strategy(solution['x[3]'], solution['x[7]'],
+                                                      (solution['x[11]'] + nbH - 1) // nbH)
+
+    label_message.config(text=s)
 
 
 # creating window
@@ -64,7 +91,6 @@ e10 = tk.Entry(window)
 e11 = tk.Entry(window)
 e12 = tk.Entry(window)
 
-
 e1.grid(row=0, column=1, pady=10)
 e2.grid(row=1, column=1, pady=10)
 e3.grid(row=2, column=1, pady=10)
@@ -79,7 +105,7 @@ e11.grid(row=10, column=1, pady=10)
 e12.grid(row=11, column=1, pady=10)
 
 button = tk.Button(window, text="Montrer la stratégie optimale", font=("Arial", 18), command=on_button_click)
-button.grid(row=12, column=0, columnspan=2, pady = 10)
+button.grid(row=12, column=0, columnspan=2, pady=10)
 
 label_message = tk.Label(window, text="", font=("Arial", 18))
 label_message.grid(row=13, column=0, columnspan=2, pady=10)

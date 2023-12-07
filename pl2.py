@@ -55,7 +55,7 @@ def solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic):
     model.optimize()
 
     print("The model has an optimal solution.")
-    solution = {var.varName: var.x for var in model.getVars()}
+    solution = {var.varName: int(var.x) for var in model.getVars()}
     return solution
 
 
