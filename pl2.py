@@ -12,6 +12,31 @@ def concatenate(*args):
     xt = np.array(xt)
     return xt
 
+def strategy(r, l, s):
+    res = ""
+    if r > 0:
+        if r == 1:
+            res += "Il faut recruter une personne"
+        else:
+            res += "Il faut recruter " + str(r) + " personnes"
+    elif l > 0:
+        if l == 1:
+            res += "Il faut licencier une personne"
+        else:
+            res += "Il faut licencier " + str(l) + " personnes"
+
+    if s > 0:
+        if len(res):
+            res += ". "
+        if s == 1:
+            res += "Une personne doit faire des heures supplémentaires"
+        else:
+            res += str(s) + " personnes doivent faire des heures supplémentaires"
+    if r == 0 and l == 0 and s == 0:
+        res += "Rien à faire"
+    res += '\n'
+    return res
+
 
 """
 c_i : demande de ième mois
@@ -56,7 +81,16 @@ def solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic):
 
     print("The model has an optimal solution.")
     solution = {var.varName: int(var.x) for var in model.getVars()}
-    return solution
+
+    s = "Stratégie du premier mois :\n" + strategy(solution['x[0]'], solution['x[4]'],
+                                                   (solution['x[8]'] + nbH - 1) // nbH)
+    s += "Stratégie du second mois :\n" + strategy(solution['x[1]'], solution['x[5]'],
+                                                   (solution['x[9]'] + nbH - 1) // nbH)
+    s += "Stratégie du troisième mois :\n" + strategy(solution['x[2]'], solution['x[6]'],
+                                                      (solution['x[10]'] + nbH - 1) // nbH)
+    s += "Stratégie du quatrième mois :\n" + strategy(solution['x[3]'], solution['x[7]'],
+                                                      (solution['x[11]'] + nbH - 1) // nbH)
+    return s
 
 
 # C1, C2, C3, C4 = 3000, 5000, 4000, 1000
