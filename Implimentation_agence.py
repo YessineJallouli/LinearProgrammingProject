@@ -45,5 +45,5 @@ def solve(a,b,c,A,K,D,B,population):
     for var in model.getVars():
         print(f"{var.varName}: {var.x}")
     print(f"\nOptimal objective value: {model.objVal}")
-    return 
+    return model
 solve(a,b,c,A,K,D,B,population)

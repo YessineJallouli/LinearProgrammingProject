@@ -23,6 +23,7 @@ def gui():
     
     for i,c in enumerate(messages):
         tk.Label(window, text=c,              font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=i)                      
+    
     ei=[]
     for i in range(0,12):
         e=tk.Entry(window)
@@ -49,6 +50,7 @@ def gui():
         label_message.config(text=solution)
 
     button = tk.Button(window, text="Montrer la stratégie optimale", font=(myFont, FontSize), bg= purple, fg= "white", command=on_button_click)
+    
     button.grid(row=12, column=0, columnspan=2, pady=10)
     window.mainloop()
 
