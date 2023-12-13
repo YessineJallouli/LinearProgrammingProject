@@ -14,7 +14,7 @@ def gui():
     window.geometry("720x700")
     # setting attribute
     #window.attributes('-fullscreen', True)
-    window.title("ChaussTous")
+    #window.title("ChaussTous")
     window.config(background=bgColor)
 
     # creating text label to display on window screen

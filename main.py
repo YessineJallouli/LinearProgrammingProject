@@ -1,4 +1,6 @@
 import tkinter as tk
+import pl2Inerface
+import pl3Interface
 
 bgColor = "#190f56"
 purple = "#a400c3"
@@ -42,5 +44,8 @@ widest_button_width = max(button.winfo_reqwidth() for button in buttons)
 # Center buttons horizontally
 for button in buttons:
     button.pack_configure(side="top")
+
+buttons[1]["command"] = pl2Inerface.gui
+buttons[2]["command"] = pl3Interface.gui
 
 window.mainloop()

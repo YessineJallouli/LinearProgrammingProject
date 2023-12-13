@@ -31,7 +31,13 @@ def solve(d1, d2, d3, d4, d5, d6, d7):
     model.optimize()
 
     # Return the results
-    solution = {var.varName: int(var.x) for var in model.getVars()}
+    myDict = {var.varName: int(var.x) for var in model.getVars()}
+    i = 0
+    days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+    solution = ""
+    for key in myDict:
+        solution+= f"{myDict[key]} employés démarrent le travail {days[i]}\n"
+        i+=1
     return solution
 
 
