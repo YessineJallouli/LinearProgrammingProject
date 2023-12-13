@@ -19,13 +19,13 @@ def gui():
 
     # creating text label to display on window screen
 
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Lundi :", font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=0)
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Mardi :", font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=1)
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Mercredi :", font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=2)
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Jeudi :", font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=3)
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Vendredi :", font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=4)
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Samedi :", font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=5)
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Dimanche :", font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=6)
+    tk.Label(window, text="Nombre d’employés minimuim requis pour Lundi :"   ,
+    tk.Label(window, text="Nombre d’employés minimuim requis pour Mardi :"   ,
+    tk.Label(window, text="Nombre d’employés minimuim requis pour Mercredi :",
+    tk.Label(window, text="Nombre d’employés minimuim requis pour Jeudi :"   ,
+    tk.Label(window, text="Nombre d’employés minimuim requis pour Vendredi :",
+    tk.Label(window, text="Nombre d’employés minimuim requis pour Samedi :"  ,
+    tk.Label(window, text="Nombre d’employés minimuim requis pour Dimanche :",
     e1 = tk.Entry(window)
     e2 = tk.Entry(window)
     e3 = tk.Entry(window)
