@@ -18,36 +18,23 @@ def gui():
     window.config(background=bgColor)
 
     # creating text label to display on window screen
-
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Lundi :"   ,
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Mardi :"   ,
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Mercredi :",
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Jeudi :"   ,
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Vendredi :",
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Samedi :"  ,
-    tk.Label(window, text="Nombre d’employés minimuim requis pour Dimanche :",
-    e1 = tk.Entry(window)
-    e2 = tk.Entry(window)
-    e3 = tk.Entry(window)
-    e4 = tk.Entry(window)
-    e5 = tk.Entry(window)
-    e6 = tk.Entry(window)
-    e7 = tk.Entry(window)
-    e1.grid(row=0, column=1, pady=10)
-    e2.grid(row=1, column=1, pady=10)
-    e3.grid(row=2, column=1, pady=10)
-    e4.grid(row=3, column=1, pady=10)
-    e5.grid(row=4, column=1, pady=10)
-    e6.grid(row=5, column=1, pady=10)
-    e7.grid(row=6, column=1, pady=10)
+    messages=["Nombre d’employés minimuim requis pour Lundi :"   ,"Nombre d’employés minimuim requis pour Mardi :"   ,"Nombre d’employés minimuim requis pour Mercredi :","Nombre d’employés minimuim requis pour Jeudi :"   ,"Nombre d’employés minimuim requis pour Vendredi :","Nombre d’employés minimuim requis pour Samedi :"  ,"Nombre d’employés minimuim requis pour Dimanche :"]
+    ei=[]
+    for i,c in enumerate(messages):
+        tk.Label(window, text=c,              font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=i)                      
+    ei=[]
+    for i in range(0,7):
+        e=tk.Entry(window)
+        e.grid(row=i, column=1, pady=10)
+        ei.append(e)
     def on_button_click():
-        D1 = int(e1.get())
-        D2 = int(e2.get())
-        D3 = int(e3.get())
-        D4 = int(e4.get())
-        D5 = int(e5.get())
-        D6 = int(e6.get())
-        D7 = int(e7.get())
+        D1 = int(e[0].get())
+        D2 = int(e[1].get())
+        D3 = int(e[2].get())
+        D4 = int(e[3].get())
+        D5 = int(e[4].get())
+        D6 = int(e[5].get())
+        D7 = int(e[6].get())
         solution = pl3.solve(D1,D2,D3,D4,D5,D6,D7)
         print(solution)
         label_message = tk.Label(window, text="", font=(myFont, FontSize), fg =blue, bg= bgColor)
@@ -57,5 +44,5 @@ def gui():
     button = tk.Button(window, text="Montrer la stratégie optimale", font=(myFont, FontSize), bg= purple, fg= "white", command=on_button_click)
     button.grid(row=12, column=0, columnspan=2, pady=10)
     window.mainloop()
-
-gui()
+if __name__ == "__main__":
+    gui()

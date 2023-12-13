@@ -52,4 +52,5 @@ def gui():
     button.grid(row=12, column=0, columnspan=2, pady=10)
     window.mainloop()
 
-gui()
+if __name__ == "__main__":
+    gui()
