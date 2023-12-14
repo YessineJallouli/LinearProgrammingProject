@@ -11,13 +11,12 @@ blue = "#27d8f2"
 grey = "#DCD6D0"
 
 def gui():
-    n=0
     # creating window
     window = tk.Tk()
     window.geometry("650x600")
     # setting attribute
     #window.attributes('-fullscreen', True)
-    window.title("ChaussTous")
+    window.title("positionnement")
     window.config(background=bgColor)
     
     tk.Label(window, text="Donner le nomber de chambre et les nmbre de zone et le constraint de chaque chambre separe par vergule",font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=0)
