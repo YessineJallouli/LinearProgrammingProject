@@ -57,7 +57,7 @@ def gui():
     # n=int(e.get())
     window.mainloop()
 
-gui()
-
+if __name__ == "__main__":
+    gui()
 
 
