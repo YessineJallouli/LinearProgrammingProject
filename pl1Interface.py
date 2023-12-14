@@ -33,6 +33,9 @@ def gui():
         e.grid(row=i, column=1, pady=10, columnspan= 20)
         ei.append(e)
 
+    label_message = tk.Label(window, text="", font=(myFont, FontSize), fg =blue, bg= bgColor)
+    label_message.grid(row=14, column=0, columnspan=2, pady=10)
+
     def on_button_click():
         ouvrierBle, tempsMachineBle, eauBle = map(int, ei[0].get().split())
         ouvrierOrge, tempsMachineOrge, eauOrge = map(int, ei[1].get().split())              
@@ -50,8 +53,8 @@ def gui():
                              tempsMachineTournesol, eauTournesol, beneficeBle, beneficeOrge, beneficeMais, beneficeBetSucre, 
                              beneficeTournesol)
         print(solution)
-        label_message = tk.Label(window, text="", font=(myFont, FontSize), fg =blue, bg= bgColor)
-        label_message.grid(row=13, column=0, columnspan=2, pady=10)
+        # label_message = tk.Label(window, text="", font=(myFont, FontSize), fg =blue, bg= bgColor)
+        # label_message.grid(row=14, column=0, columnspan=2, pady=10)
         label_message.config(text=solution)
 
     button = tk.Button(window, text="Montrer la stratégie optimale", font=(myFont, FontSize), bg= purple, fg= "white", command=on_button_click)

@@ -27,10 +27,11 @@ def solve(ouvrierBle, tempsMachineBle, eauBle, ouvrierOrge, tempsMachineOrge, ea
     model.optimize()
 
     solution = ""
-    myList = ["Quantité blé, Quantité orge", "Quantite mais, Quantité bet-sucré, Quantité tournesol"]
+    myList = ["Quantité blé", "Quantité orge", "Quantite mais", "Quantité bet-sucré", "Quantité tournesol"]
     i = 0
     print("\nOptimal solution:")
     for var in model.getVars():
         solution+=f"{myList[i]} est {var.x}\n"
+        i+=1
     solution+= f"Optimal objective value: {model.objVal}"
     return solution 

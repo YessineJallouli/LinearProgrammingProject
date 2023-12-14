@@ -49,7 +49,7 @@ widest_button_width = max(button.winfo_reqwidth() for button in buttons)
 for button in buttons:
     button.pack_configure(side="top")
 
-button[0]["command"] = pl1Interface.gui
+buttons[0]["command"] = pl1Interface.gui
 buttons[1]["command"] = pl2Inerface.gui
 buttons[2]["command"] = pl3Interface.gui
 buttons[3]["command"] = TD2EX1Interface.gui

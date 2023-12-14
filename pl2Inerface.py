@@ -29,6 +29,9 @@ def gui():
         e=tk.Entry(window)
         e.grid(row=i, column=1, pady=10)
         ei.append(e)
+        
+        label_message = tk.Label(window, text="", font=(myFont, FontSize), fg =blue, bg= bgColor)
+        label_message.grid(row=13, column=0, columnspan=2, pady=10)
 
     def on_button_click():
         c1 =      int(ei[0].get())
@@ -45,8 +48,6 @@ def gui():
         lic =    int(ei[11].get())
         solution = pl2.solve(c1, c2, c3, c4, nbOuv, salaire, nbH, nbSp, prixSup, tmpCh, rec, lic)
         print(solution)
-        label_message = tk.Label(window, text="", font=(myFont, FontSize), fg =blue, bg= bgColor)
-        label_message.grid(row=13, column=0, columnspan=2, pady=10)
         label_message.config(text=solution)
 
     button = tk.Button(window, text="Montrer la stratégie optimale", font=(myFont, FontSize), bg= purple, fg= "white", command=on_button_click)
