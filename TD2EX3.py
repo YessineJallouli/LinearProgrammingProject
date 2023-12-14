@@ -4,33 +4,21 @@ from gurobipy import GRB
 
 def solve(coff1, coff2, coff3, coff4, coff5, coff6, coff7, coff8, coff9, coff10, coff11):
     # Créer un modèle
-    model = gp.Model("Optimization_Model")
+    model = gp.Model("Reseau")
 
     # Variables
-    xAB = model.addVar(vtype=GRB.BINARY, name="xAB")
-    xAC = model.addVar(vtype=GRB.BINARY, name="xAC")
-    xBD = model.addVar(vtype=GRB.BINARY, name="xBD")
-    xBE = model.addVar(vtype=GRB.BINARY, name="xBE")
-    xCB = model.addVar(vtype=GRB.BINARY, name="xCB")
-    xCE = model.addVar(vtype=GRB.BINARY, name="xCE")
-    xCF = model.addVar(vtype=GRB.BINARY, name="xCF")
-    xDE = model.addVar(vtype=GRB.BINARY, name="xDE")
-    xDG = model.addVar(vtype=GRB.BINARY, name="xDG")
-    xEG = model.addVar(vtype=GRB.BINARY, name="xEG")
-    xFE = model.addVar(vtype=GRB.BINARY, name="xFE")
+    xAB = model.addVar(vtype=GRB.BINARY, name="AB")
+    xAC = model.addVar(vtype=GRB.BINARY, name="AC")
+    xBD = model.addVar(vtype=GRB.BINARY, name="BD")
+    xBE = model.addVar(vtype=GRB.BINARY, name="BE")
+    xCB = model.addVar(vtype=GRB.BINARY, name="CB")
+    xCE = model.addVar(vtype=GRB.BINARY, name="CE")
+    xCF = model.addVar(vtype=GRB.BINARY, name="CF")
+    xDE = model.addVar(vtype=GRB.BINARY, name="DE")
+    xDG = model.addVar(vtype=GRB.BINARY, name="DG")
+    xEG = model.addVar(vtype=GRB.BINARY, name="EG")
+    xFE = model.addVar(vtype=GRB.BINARY, name="FE")
 
-    #
-    # coff1=input("donner la coeff de AB")
-    # coff2=input("donner la coeff de AC")
-    # coff3=input("donner la coeff de BD")
-    # coff4=input("donner la coeff de BE")
-    # coff5=input("donner la coeff de CB")
-    # coff6=input("donner la coeff de CE")
-    # coff7=input("donner la coeff de CF")
-    # coff8=input("donner la coeff de DE")
-    # coff9=input("donner la coeff de DG")
-    # coff10=input("donner la coeff de EG")
-    # coff11=input("donner la coeff de FE")
 
     # Objectif
     model.setObjective(coff1*xAB + coff2*xAC + coff3*xBD + coff4*xBE + coff5*xCB + coff6*xCE + coff7*xCF + coff8*xDE + coff9*xDG + coff10*xEG + coff11*xFE, GRB.MINIMIZE)
@@ -46,15 +34,26 @@ def solve(coff1, coff2, coff3, coff4, coff5, coff6, coff7, coff8, coff9, coff10,
 
     # Optimisation
     model.optimize()
+    res = "La distance minimale entre A et G est : " + str(model.objVal) + ". Il faut traverser : "
 
-    # Affichage des résultats
-    if model.status == GRB.OPTIMAL:
-        print("Solution optimale trouvée:")
-        for v in model.getVars():
-            print(f"{v.varName} = {v.x}")
-        print(f"Valeur de l'objectif: {model.objVal}")
-    else:
-        print("Aucune solution optimale trouvée.")
+    l = []
+    for v in model.getVars():
+        if v.x == 1:
+            if len(str(v.varName)) != 2:
+                continue
+            l.append(str(v.varName))
+
+    for i in range(0, len(l)):
+        if len(l[i]) == 1:
+            continue
+        for j in range(i+1, len(l)):
+            if l[i][1] == l[j][0]:
+                l[i+1],l[j] = l[j],l[i+1]
+
+    for i in l:
+        res = res + str(i) + ","
+    return res[:-1]
+
 
 AB,AC,BD,BE,CB,CE,CF,DE,DG,EG,FE = 4,3,6,5,3,4,6,2,1,3,6
 solve(AB,AC,BD,BE,CB,CE,CF,DE,DG,EG,FE)
