@@ -1,6 +1,9 @@
 import tkinter as tk
 import pl2Inerface
 import pl3Interface
+import TD2EX1Interface
+import TD2EX2Inteface
+import TD2EX3Interface
 
 bgColor = "#190f56"
 purple = "#a400c3"
@@ -47,5 +50,8 @@ for button in buttons:
 
 buttons[1]["command"] = pl2Inerface.gui
 buttons[2]["command"] = pl3Interface.gui
+buttons[3]["command"] = TD2EX1Interface.gui
+buttons[4]["command"] = TD2EX2Inteface.gui
+buttons[5]["command"] = TD2EX3Interface.gui
 
 window.mainloop()

@@ -11,10 +11,10 @@ grey = "#DCD6D0"
 def gui():
     # creating window
     window = tk.Tk()
-    window.geometry("650x600")
+    window.geometry("750x550")
     # setting attribute
     #window.attributes('-fullscreen', True)
-    window.title("ChaussTous")
+    window.title("Planification des besoins en ressources humaines")
     window.config(background=bgColor)
 
     # creating text label to display on window screen

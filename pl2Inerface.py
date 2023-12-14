@@ -12,14 +12,14 @@ def gui():
     global ei
     # creating window
     window = tk.Tk()
-    window.geometry("720x700")
+    window.geometry("900x770")
     # setting attribute
     #window.attributes('-fullscreen', True)
     window.title("ChaussTous")
     window.config(background=bgColor)
 
     # creating text label to display on window screen
-    messages=["Nombre de chaussure demandé pour le premier mois :","Nombre de chaussure demandé pour le second mois :","Nombre de chaussure demandé pour le second mois :""Nombre de chaussure demandé pour le troisième mois :","Nombre de chaussure demandé pour le quatrième mois :","Nombre d’ouvrier disposé :","Salaire d’un ouvrier en dinars :","Nombre d’heures travaillé par un ouvrier pendant un mois :","Nombre d’heures supplémentaire maximale pendant un mois :","Prix d’une heure supplémentaire :","Temps pour faire une paire de chaussure : ","Frais de recrutement :","Frais de licenciement :" ]
+    messages=["Nombre de chaussure demandé pour le premier mois :","Nombre de chaussure demandé pour le second mois :","Nombre de chaussure demandé pour le troisième mois :","Nombre de chaussure demandé pour le quatrième mois :","Nombre d’ouvrier disposé :","Salaire d’un ouvrier en dinars :","Nombre d’heures travaillé par un ouvrier pendant un mois :","Nombre d’heures supplémentaire maximale pendant un mois :","Prix d’une heure supplémentaire :","Temps pour faire une paire de chaussure : ","Frais de recrutement :","Frais de licenciement :" ]
     
     for i,c in enumerate(messages):
         tk.Label(window, text=c,              font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=i)                      

@@ -13,13 +13,13 @@ grey = "#DCD6D0"
 def gui():
     # creating window
     window = tk.Tk()
-    window.geometry("650x600")
+    window.geometry("850x800")
     # setting attribute
     #window.attributes('-fullscreen', True)
     window.title("positionnement")
     window.config(background=bgColor)
     
-    tk.Label(window, text="Donner le nomber de chambre et les nmbre de zone et le constraint de chaque chambre separe par vergule",font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=0)
+    tk.Label(window, text="Donner le nomber de chambre , de zone et le constraint de chaque chambre separe par vergule",font=(myFont, FontSize),fg= "white" ,bg= bgColor).grid(row=0)
     e=tk.Entry(window)
     e.grid(row=0, column=1, pady=10)
     def get_n():
@@ -57,6 +57,7 @@ def gui():
     # n=int(e.get())
     window.mainloop()
 
-
+if __name__ == "__main__":
+    gui()
 
 
