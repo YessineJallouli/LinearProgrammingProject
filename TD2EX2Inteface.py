@@ -57,6 +57,7 @@ def gui():
     # n=int(e.get())
     window.mainloop()
 
+gui()
 
 
 
